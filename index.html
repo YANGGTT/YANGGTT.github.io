@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/y.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/y.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="robotic, control" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="WuYangNing">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="WuYangNing">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="吴杨宁">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+
+
+
+
+  <title>WuYangNing</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">WuYangNing</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/26/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="WuYangNing">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/06/26/hello-world/" itemprop="url">旋转表示法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-26T10:56:40+08:00">
+                2021-06-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、旋转矩阵"><a href="#一、旋转矩阵" class="headerlink" title="一、旋转矩阵"></a>一、旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
+<script type="math/tex; mode=display">
+^{A}R_B=[p_x,p_y,p_z]</script><p>$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<li>$^{A}R_B^{-1}={^A}R_B^T$</li>
+<li>$^{A}R_C={^A}R_B^{B}R_C$</li>
+<li>${^A}p={^A}R_B{^B}p$</li>
+</ul>
+<h2 id="绕xyz的旋转"><a href="#绕xyz的旋转" class="headerlink" title="绕xyz的旋转"></a>绕xyz的旋转</h2><p>使用右手定则确定旋转的方向</p>
+<script type="math/tex; mode=display">
+Rot_x(\theta)=\begin{bmatrix}
+  1& 0 &0 \\
+  0& cos\theta &-sin\theta \\
+  0&  sin\theta&cos\theta
+\end{bmatrix}</script><script type="math/tex; mode=display">
+Rot_y(\theta)=\begin{bmatrix}
+  cos\theta& 0 &sin\theta \\
+  0& 1&0\\
+  -sin\theta&  0&cos\theta
+\end{bmatrix}</script><script type="math/tex; mode=display">
+Rot_z(\theta)=\begin{bmatrix}
+  cos\theta& -sin\theta&0 \\
+  sin\theta& cos\theta &0 \\
+  0&  0&1
+\end{bmatrix}</script><h2 id="齐次变换"><a href="#齐次变换" class="headerlink" title="齐次变换"></a>齐次变换</h2><p>将旋转和平移变换写成齐次矩阵：</p>
+<script type="math/tex; mode=display">
+T=\begin{bmatrix}
+  R& p \\
+  0&  1
+\end{bmatrix}</script><p>满足:</p>
+<script type="math/tex; mode=display">
+T^{-1}=\begin{bmatrix}
+  R^T& -R^Tp \\
+  0&  1
+\end{bmatrix}</script><h1 id="二、欧拉角"><a href="#二、欧拉角" class="headerlink" title="二、欧拉角"></a>二、欧拉角</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">　　坐标系A--&gt;|绕z旋转|坐标系1;</span><br><span class="line">　　坐标系1--&gt;|绕y旋转|坐标系2;</span><br><span class="line">　　坐标系2--&gt;|绕x旋转|坐标系B;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph RL;</span><br><span class="line">　　Bp--&gt;|Rot_x|2p;</span><br><span class="line">　　2p--&gt;|Rot_y|1p;</span><br><span class="line">　　1p--&gt;|Rot_z|Ap;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+Euler_{zyx}(\alpha,\beta,\gamma)=\begin{bmatrix}
+  c\alpha c\beta& c\alpha s\beta s\gamma-s\alpha c\gamma&c\alpha s\beta c\gamma+s\alpha s\gamma \\
+  s\alpha c\beta&s\alpha s\beta s\gamma+c\alpha c\gamma   &s\alpha s\beta c\gamma-c\alpha s\gamma \\
+  -s\beta&  c\beta s\gamma&c\beta c\gamma
+\end{bmatrix}</script><h3 id="已知旋转矩阵求欧拉角"><a href="#已知旋转矩阵求欧拉角" class="headerlink" title="已知旋转矩阵求欧拉角"></a>已知旋转矩阵求欧拉角</h3><script type="math/tex; mode=display">
+\begin{aligned}
+&\alpha=atan2(r_{21},r_{11})\\
+&\beta=atan2(-r_{31},\pm\sqrt{r_{11}^2+r_{21}^2}) \\
+&\gamma=atan2(r_{32},r_{33})
+\end{aligned}</script><h1 id="三、四元数"><a href="#三、四元数" class="headerlink" title="三、四元数"></a>三、四元数</h1><p>四元数定义为：</p>
+<script type="math/tex; mode=display">
+q=s+xi+yi+zk=q(s,v)</script><p>满足：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& i^2+j^2+k^2=ijk=-1\\
+&ij=-ji=k\\
+&jk=-kj=i\\
+&ki=-ik=j
+\end{aligned}</script><p>用于表示旋转的单位四元数：</p>
+<script type="math/tex; mode=display">
+q(cos\frac{\theta}{2},vsin\frac{\theta}{2})</script><p>其意义为绕当前坐标系v轴旋转$\theta$角度得到的新的坐标系</p>
+<h2 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h2><p>四元数$q_1=a+bi+cj+dk,q_2=e+fi+gj+hk$</p>
+<ul>
+<li>相加：<script type="math/tex; mode=display">
+q_1+q_2=(a+e)+(b+f)i+(c+g)j+(d+h)k</script></li>
+<li>相乘(不满足交换律)：<script type="math/tex; mode=display">
+\begin{aligned}
+q_1q_2=&(ae-bf-cg-dh)+\\
+&(be+af-dg+ch)i+\\
+&(ce+df+ag-bh)j+\\
+&(de-cf+bg+ah)k
+\end{aligned}</script>或表示为：<script type="math/tex; mode=display">
+q_1q_2=\begin{bmatrix}
+a&-b &-c &-d  \\ 
+b&  a& -d & c\\ 
+c&  d&  a&-b \\ 
+d&  -c& b & a
+\end{bmatrix}\begin{bmatrix}
+e\\
+f\\
+g\\
+h
+\end{bmatrix}</script></li>
+<li>乘法也可表示为：<script type="math/tex; mode=display">
+\begin{aligned}
+&q_1=[s_1,v_1],q_2=[s_2,v_2]\\
+&q_1q_2=[s_1s_2-v_1v_2,s_1v_2+s_2v_1+v_1\times v_2]
+\end{aligned}</script></li>
+<li><p>共轭和逆</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&q=[s,v],q^*=[s,-v]\\
+&q^{-1}=\frac{q^*}{|q|^2}
+\end{aligned}</script><h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2></li>
+<li><p>$q_{1,2}$表示坐标系{1}到{2}的旋转（{2}相对于{1}的姿态），则向量在{1}中的表示$p_1$和向量在{2}中的表示$p_2$的关系为：</p>
+<script type="math/tex; mode=display">
+p_1=q_{1,2}p_2q_{1,2}^*</script></li>
+<li>旋转的叠加与旋转矩阵相似，依次进行$q_1,q_2$旋转（绕相对轴）的叠加可表示为<script type="math/tex; mode=display">
+q=q_1q_2</script><h2 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h2></li>
+<li>xyz欧拉角$(\alpha,\beta,\gamma)$转四元数<script type="math/tex; mode=display">
+\begin{bmatrix}
+w \\ 
+x\\ 
+y\\ 
+x
+\end{bmatrix}=\begin{bmatrix}
+c\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
+s\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
+c\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}\\
+s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}
+\end{bmatrix}</script></li>
+</ul>
+<h1 id="旋量"><a href="#旋量" class="headerlink" title="旋量"></a>旋量</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/icon.jpg"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <br>
+            <div style="width:120px;text-align:left;margin-left: 50px;margin-right: 50px;">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/YANGGTT" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/347683789" target="_blank" title="BiliBili">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BiliBili</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCc2FKnVd4zd1lU_P9QGXRmA" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.thingiverse.com/yang_gt/designs" target="_blank" title="Thingiverse">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Thingiverse</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://grabcad.com/wuyangning-1" target="_blank" title="GrabCAD">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GrabCAD</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">吴杨宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
