@@ -1810,6 +1810,7 @@ pre .javascript .function {
 .links-of-author a {
   display: inline-block;
   vertical-align: middle;
+  margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 10px;
   border-bottom-color: #555;
@@ -1823,7 +1824,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7f5eff;
+  background: #1d6eff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2933,9 +2934,6 @@ pre .javascript .function {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0s;
 }
 .links-of-author-item a {
   display: block;
@@ -2988,12 +2986,73 @@ pre .javascript .function {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0s;
 }
 @media (max-width: 767px) {
   .post-body {
     text-align: justify;
   }
+}
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+  border-bottom: 1px solid #0593d3;
+}
+.post-body p a:hover {
+  color: #708090;
+  border-bottom: none;
+  border-bottom: 1px solid #708090;
+}
+::selection {
+  background: #708090;
+  color: #f7f7f7;
+}
+::-moz-selection {
+  background: #708090;
+  color: #f7f7f7;
+}
+.headband {
+  height: 0px;
+  background: #ffd180;
+}
+.site-meta {
+  padding: 20px 0;
+  background: #708090;
+  color: #fff;
+}
+.site-subtitle {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #fff;
+}
+.btn {
+  color: #708090;
+  background: #fff;
+  border: 2px solid #708090;
+}
+.btn:hover {
+  border-color: #708090;
+  color: #fff;
+  background: #708090;
+}
+.posts-expand .post-title-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #708090;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
 }
