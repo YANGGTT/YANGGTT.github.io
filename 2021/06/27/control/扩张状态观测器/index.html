@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="WuYangNing">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="龙伯格观测器考虑一个线性模型：  \begin{aligned} \dot {x}&amp;&#x3D;Ax+Bu \\ y&amp;&#x3D;Cx \end{aligned} $x$为状态， $y$为输出，即测量值  则一个龙伯格观测器为：  \dot{\hat{x}}&#x3D;A\hat{x}+Bu+L(y-\hat{y}) $\hat{x}$为状态估计值 $\hat y&#x3D;C\hat x$，为估计的测量值  上式中$A\hat{x}+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="扩张状态观测器">
+<meta property="og:url" content="http://example.com/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/index.html">
 <meta property="og:site_name" content="WuYangNing">
+<meta property="og:description" content="龙伯格观测器考虑一个线性模型：  \begin{aligned} \dot {x}&amp;&#x3D;Ax+Bu \\ y&amp;&#x3D;Cx \end{aligned} $x$为状态， $y$为输出，即测量值  则一个龙伯格观测器为：  \dot{\hat{x}}&#x3D;A\hat{x}+Bu+L(y-\hat{y}) $\hat{x}$为状态估计值 $\hat y&#x3D;C\hat x$，为估计的测量值  上式中$A\hat{x}+">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-27T09:17:39.014Z">
+<meta property="article:modified_time" content="2021-06-27T09:55:11.754Z">
 <meta property="article:author" content="吴杨宁">
 <meta name="twitter:card" content="summary">
 
@@ -119,7 +123,7 @@
 
 
 
-  <title>WuYangNing</title>
+  <title>扩张状态观测器 | WuYangNing</title>
   
 
 
@@ -138,8 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,290 +225,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/robotic/quadrotor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/robotic/quadrotor/" itemprop="url">四旋翼飞行器建模与控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:22:43+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="完整动力学"><a href="#完整动力学" class="headerlink" title="完整动力学"></a>完整动力学</h1><p>&emsp;<br><strong>绝对坐标系下的位置动力学</strong></p>
-<script type="math/tex; mode=display">
-m\begin{bmatrix}
-  \ddot x\\
-  \ddot y\\
-  \ddot z  
-\end{bmatrix}=\begin{bmatrix}
-&fsin\beta -k_1\dot x+c_x+a_x\\
-&-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\
-&fcos\alpha cos\beta-mg-k_3\dot z+c_z+a_z 
-\end{bmatrix}</script><p><strong>机体坐标系下的姿态动力学</strong></p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-  I_x\dot \omega_x\\
-  I_y\dot \omega_y\\
-  I_z\dot \omega_z  
-\end{bmatrix}=\begin{bmatrix}
-  \tau_x-\omega_y\omega_z(I_z-I_y)-k_4\omega_x+t_x+b_x\\
-  \tau_y-\omega_x\omega_z(I_x-I_z)-k_5\omega_y+t_y+b_y\\
-  \tau_z-\omega_x\omega_y(I_y-I_x)-k_4\omega_z+t_z+b_z
-\end{bmatrix}</script>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/robotic/quadrotor/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/control/MPC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/MPC/" itemprop="url">MPC控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:18:45+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Linear-MPC"><a href="#Linear-MPC" class="headerlink" title="Linear MPC"></a>Linear MPC</h1><script type="math/tex; mode=display">
-\begin{aligned}
-{min}_{U}\;J(U)&=(x_N-r_N)^TP(x_N-r_N)+\\
-&\sum^{N-1}_{k=0}(x_k-r_k)^TQ(x_k-r_k)+u_k^TRu_k\\
-s.t.& \\
-&x_{k+1}=Ax_k+Bu_k\\
-&x_{min}\le x_k\le x_{max}\\
-&u_{min}\le u_k\le u_{max}
-\end{aligned}</script><p>其中：</p>
-<ul>
-<li>$N$为预测时域</li>
-<li>$x_0=x(t)$为当前状态</li>
-<li>$x_k=x(t+k|t)$为当前状态下预测的k时刻后的状态</li>
-<li>$u_k=u(t+k|t)$为当前状态下预测的k时刻后的最佳控制量</li>
-<li>$r_k=r(t+k)$为参考状态</li>
-<li>$P,Q,R$为正定对角矩阵</li>
-<li>$U=[u_{0} ,u_1, …u_ {p-1}]^T$</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/MPC/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -535,9 +257,7 @@ s.t.& \\
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/" itemprop="url">扩张状态观测器</a></h1>
+          <h1 class="post-title" itemprop="name headline">扩张状态观测器</h1>
         
 
         <div class="post-meta">
@@ -585,8 +305,7 @@ s.t.& \\
       
 
       
-        
-          <h1 id="龙伯格观测器"><a href="#龙伯格观测器" class="headerlink" title="龙伯格观测器"></a>龙伯格观测器</h1><p>考虑一个线性模型：</p>
+        <h1 id="龙伯格观测器"><a href="#龙伯格观测器" class="headerlink" title="龙伯格观测器"></a>龙伯格观测器</h1><p>考虑一个线性模型：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \dot {x}&=Ax+Bu \\
@@ -602,143 +321,35 @@ y&=Cx
 <li>$\hat y=C\hat x$，为估计的测量值</li>
 </ul>
 <p>上式中$A\hat{x}+Bu$为开环观测值，可以理解为预测值。$L(y-\hat{y})$为测量值的误差反馈。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/" itemprop="url">旋转描述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-26T10:56:40+08:00">
-                2021-06-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
+<span id="more"></span>
+<h4 id="稳定性："><a href="#稳定性：" class="headerlink" title="稳定性："></a>稳定性：</h4><p>令观测误差为：$\tilde x=x-\hat x$，则：</p>
 <script type="math/tex; mode=display">
-^{A}R_B=[p_x,p_y,p_z]</script><p>$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述</p>
-<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
-<li>$^{A}R_B^{-1}={^A}R_B^T$</li>
-<li>$^{A}R_C={^A}R_B^{B}R_C$</li>
-<li>${^A}p={^A}R_B{^B}p$</li>
+\dot{\tilde x}=(A-LC)\tilde x</script><p>只需使$(A-LC)$负定即可使状态观测误差收敛。</p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><ul>
+<li>当模型中的$C$不可逆时，无法由测量的输出直接复原状态值，这时可以采用观测器，由模型和测量值复原完整的状态，前提是这一个模型满足能观性。</li>
+<li>龙伯格观测器是一种线性观测器，其对测量噪声有一定的鲁棒性。</li>
+<li>龙伯格观测器可以理解为一种互补滤波，是预测值和测量值的互补。</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<h1 id="线性扩张状态观测器-LESO"><a href="#线性扩张状态观测器-LESO" class="headerlink" title="线性扩张状态观测器(LESO)"></a>线性扩张状态观测器(LESO)</h1><p>考虑一个二阶的非线性系统 </p>
+<script type="math/tex; mode=display">
+\ddot x=f(x,\dot x,w,d)+bu</script><p>记$\dot f=h$，写成状态空间表达式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\dot {x}_1&=x_2 \\
+\dot {x}_2&=x_3+bu \\
+\dot {x}_3&=h
+\end{aligned}</script><p>$x_3$为扩张的状态，由非线性项、扰动、和未建模不确定项构成，称为总扰动。<br>基于以上的状态空间表达式，构建龙伯格状态观测器：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\dot {\hat x}_1&=\hat x_2+l_1(y-\hat y) \\
+\dot {\hat x}_2&=\hat x_3+bu+l_2(y-\hat y)  \\
+\dot {\hat x}_3&=l_3(y-\hat y)\\
+\hat y&=C\hat x 
+\end{aligned}</script><ul>
+<li>$y$为测量值</li>
+<li>$C$为测量矩阵</li>
+</ul>
+
       
     </div>
     
@@ -755,12 +366,32 @@ y&=Cx
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/" rel="next" title="旋转描述">
+                <i class="fa fa-chevron-left"></i> 旋转描述
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/06/27/control/MPC/" rel="prev" title="MPC控制">
+                MPC控制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -770,10 +401,11 @@ y&=Cx
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -781,6 +413,10 @@ y&=Cx
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1026,6 +662,10 @@ y&=Cx
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

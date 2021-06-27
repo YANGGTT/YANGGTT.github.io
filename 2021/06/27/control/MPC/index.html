@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="WuYangNing">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="Linear MPC \begin{aligned} {min}_{U}\;J(U)&amp;&#x3D;(x_N-r_N)^TP(x_N-r_N)+\\ &amp;\sum^{N-1}_{k&#x3D;0}(x_k-r_k)^TQ(x_k-r_k)+u_k^TRu_k\\ s.t.&amp; \\ &amp;x_{k+1}&#x3D;Ax_k+Bu_k\\ &amp;x_{min}\le x_k\le x_{max}\\ &amp;u_{min}\le u_k\le u_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MPC控制">
+<meta property="og:url" content="http://example.com/2021/06/27/control/MPC/index.html">
 <meta property="og:site_name" content="WuYangNing">
+<meta property="og:description" content="Linear MPC \begin{aligned} {min}_{U}\;J(U)&amp;&#x3D;(x_N-r_N)^TP(x_N-r_N)+\\ &amp;\sum^{N-1}_{k&#x3D;0}(x_k-r_k)^TQ(x_k-r_k)+u_k^TRu_k\\ s.t.&amp; \\ &amp;x_{k+1}&#x3D;Ax_k+Bu_k\\ &amp;x_{min}\le x_k\le x_{max}\\ &amp;u_{min}\le u_k\le u_">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-27T09:18:45.571Z">
+<meta property="article:modified_time" content="2021-06-27T10:10:46.788Z">
 <meta property="article:author" content="吴杨宁">
 <meta name="twitter:card" content="summary">
 
@@ -119,7 +123,7 @@
 
 
 
-  <title>WuYangNing</title>
+  <title>MPC控制 | WuYangNing</title>
   
 
 
@@ -138,8 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,151 +225,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/robotic/quadrotor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/robotic/quadrotor/" itemprop="url">四旋翼飞行器建模与控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:22:43+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="完整动力学"><a href="#完整动力学" class="headerlink" title="完整动力学"></a>完整动力学</h1><p>&emsp;<br><strong>绝对坐标系下的位置动力学</strong></p>
-<script type="math/tex; mode=display">
-m\begin{bmatrix}
-  \ddot x\\
-  \ddot y\\
-  \ddot z  
-\end{bmatrix}=\begin{bmatrix}
-&fsin\beta -k_1\dot x+c_x+a_x\\
-&-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\
-&fcos\alpha cos\beta-mg-k_3\dot z+c_z+a_z 
-\end{bmatrix}</script><p><strong>机体坐标系下的姿态动力学</strong></p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-  I_x\dot \omega_x\\
-  I_y\dot \omega_y\\
-  I_z\dot \omega_z  
-\end{bmatrix}=\begin{bmatrix}
-  \tau_x-\omega_y\omega_z(I_z-I_y)-k_4\omega_x+t_x+b_x\\
-  \tau_y-\omega_x\omega_z(I_x-I_z)-k_5\omega_y+t_y+b_y\\
-  \tau_z-\omega_x\omega_y(I_y-I_x)-k_4\omega_z+t_z+b_z
-\end{bmatrix}</script>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/robotic/quadrotor/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -396,9 +257,7 @@ m\begin{bmatrix}
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/MPC/" itemprop="url">MPC控制</a></h1>
+          <h1 class="post-title" itemprop="name headline">MPC控制</h1>
         
 
         <div class="post-meta">
@@ -446,8 +305,7 @@ m\begin{bmatrix}
       
 
       
-        
-          <h1 id="Linear-MPC"><a href="#Linear-MPC" class="headerlink" title="Linear MPC"></a>Linear MPC</h1><script type="math/tex; mode=display">
+        <h1 id="Linear-MPC"><a href="#Linear-MPC" class="headerlink" title="Linear MPC"></a>Linear MPC</h1><script type="math/tex; mode=display">
 \begin{aligned}
 {min}_{U}\;J(U)&=(x_N-r_N)^TP(x_N-r_N)+\\
 &\sum^{N-1}_{k=0}(x_k-r_k)^TQ(x_k-r_k)+u_k^TRu_k\\
@@ -465,151 +323,89 @@ s.t.& \\
 <li>$P,Q,R$为正定对角矩阵</li>
 <li>$U=[u_{0} ,u_1, …u_ {p-1}]^T$</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/MPC/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/" itemprop="url">扩张状态观测器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:17:39+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="龙伯格观测器"><a href="#龙伯格观测器" class="headerlink" title="龙伯格观测器"></a>龙伯格观测器</h1><p>考虑一个线性模型：</p>
+<span id="more"></span>
+<h1 id="Formulation"><a href="#Formulation" class="headerlink" title="Formulation"></a>Formulation</h1><h4 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h4><p>记：</p>
+<script type="math/tex; mode=display">X=[x_1,x_2,...x_N]^T,D=[r_1,r_2,...r_N]^T</script><p>由$x_{k+1}=Ax_k+Bu_k$，可得：</p>
+<script type="math/tex; mode=display">
+x_k=A^kx_0+\sum_{i=0}^{k-1}A^iBu_{k-1-i}</script><p>写成矩阵：</p>
+<script type="math/tex; mode=display">
+X=SU+Tx_0</script><p>其中：</p>
+<ul>
+<li>$S=\begin{bmatrix}<br>B&amp;0&amp;0&amp;…&amp;0\\<br>AB&amp;B&amp;0&amp;…&amp;0\\<br>…&amp;…&amp;…&amp;…&amp;0\\<br>A^{N-1}B&amp;A^{N-2}B&amp;A^{N-3}B&amp;…&amp;B<br>\end{bmatrix}$<br>&emsp;</li>
+<li>$T=[A,A^2,…A^N]^T$</li>
+</ul>
+<h4 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h4><p>记：</p>
+<ul>
+<li>$X_{max}=[x_{max},x_{max},…x_{max}]^T$</li>
+<li>$X_{min}=[x_{min},x_{min},…x_{min}]^T$</li>
+<li>$U_{max}=[u_{max},u_{max},…u_{max}]^T$</li>
+<li>$U_{min}=[u_{min},u_{min},…u_{min}]^T$</li>
+</ul>
+<p>则有：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-\dot {x}&=Ax+Bu \\
-y&=Cx
-\end{aligned}</script><ul>
-<li>$x$为状态，</li>
-<li>$y$为输出，即测量值</li>
-</ul>
-<p>则一个龙伯格观测器为：</p>
+U_{min}\le &U\le U_{max}\\
+X_{min}-Tx_0\le &SU\le X_{max}-Tx_0
+\end{aligned}</script><p>合并(其中$I$为单位矩阵)：</p>
 <script type="math/tex; mode=display">
-\dot{\hat{x}}=A\hat{x}+Bu+L(y-\hat{y})</script><ul>
-<li>$\hat{x}$为状态估计值</li>
-<li>$\hat y=C\hat x$，为估计的测量值</li>
+\begin{bmatrix}
+&U_{min}\\ 
+&X_{min}-Tx_0
+\end{bmatrix}\le \begin{bmatrix}
+I\\ 
+S
+\end{bmatrix}U\le \begin{bmatrix}
+&U_{max}\\ 
+&X_{max}-Tx_0
+\end{bmatrix}</script><p>可记作：</p>
+<script type="math/tex; mode=display">
+\bar{U}_{min}\le \bar{S}U\le \bar{U}_{max}</script><h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>将MPC问题转化为二次规划问题。<br>记：</p>
+<script type="math/tex; mode=display">\bar{R}=\begin{bmatrix}
+ R&& &\\  
+ &R&&\\
+  &&...&\\
+&&&R
+\end{bmatrix},\bar{Q}\begin{bmatrix}
+ Q&& &\\  
+ &Q&&\\
+  &&...&\\
+&&&P
+\end{bmatrix}</script><p>则：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+J(U)=&(x_0-r_0)^TQ(x_0-r_0)+\\
+&(X-D)^T\bar{Q}(X-D)+U^T\bar{R}U
+\end{aligned}</script><p>带入$X=SU+Tx_0$，可得：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+J(U)=&U^T(S^T\bar{Q}S+\bar{R})U+2(Tx_0-D)^T\bar{Q}SU+\\  
+&(Tx_0-D)^T\bar{Q}(Tx_0-D)+(x_0-r_0)^TQ(x_0-r_0)
+\end{aligned}</script><p>后两项与$U$无关，不影响优化结果，可以舍去。<br>因此可构造二次优化问题为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+{min}_{U}\;&\bar{J}(U)=U^THU+YU \\
+s.t.& \\
+&H=S^T\bar{Q}S+\bar{R}\\
+&Y=2(Tx_0-D)^T\bar{Q}S\\
+&\bar{U}_{min}\le \bar{S}U\le \bar{U}_{max}
+\end{aligned}</script><h1 id="Feedback"><a href="#Feedback" class="headerlink" title="Feedback"></a>Feedback</h1><p>将得到的控制序列$U$的第一项作为系统的反馈输入</p>
+<h1 id="稳定性证明"><a href="#稳定性证明" class="headerlink" title="稳定性证明"></a>稳定性证明</h1><p>将优化得到的最优控制序列带入到优化目标函数中得到$V$通过证明$V$随时间递减，即$V[x(t+1)]-V[x(t)]\le0$，可证明控制器收敛。</p>
+<p>证明需要满足假设：</p>
+<ul>
+<li>模型精确：$x(t+k)=x(t+k|t+n),n\le k$</li>
+<li>终端约束：$x(t+N|t)-r(t+N)=0$</li>
 </ul>
-<p>上式中$A\hat{x}+Bu$为开环观测值，可以理解为预测值。$L(y-\hat{y})$为测量值的误差反馈。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<script type="math/tex; mode=display">
+\begin{aligned}
+V[x(t)]=\sum^{N-1}_{k=0}&[x(t+k|t)-r(t+k)]^TQ[x(t+k|t)-r(t+k)]+\\
+&u^T(t+k|t)Ru(t+k|t)\\
+&[x(t+N|t)-r(t+N)]^TP[x(t+N|t)-r(t+N)]\\
+V[x(t+1)]=\sum^{N-1}_{k=0}&[x(t+1+k|t+1)-r(t+1+k)]^TQ[x(t+1+k|t+1)-r(t+1+k)]+\\
+&u^T(t+1+k|t+1)Ru(t+1+k|t+1)\\
+&[x(t+1+N|t+1)-r(t+1+N)]^TP[x(t+1+N|t+1)-r(t+1+N)]
+\end{aligned}</script><p>则：</p>
+<script type="math/tex; mode=display">
+V[x(t+1)]-V[x(t)]=-x^T(t)Qx(t)-u^T(t)Ru(t)</script>
       
     </div>
     
@@ -626,141 +422,32 @@ y&=Cx
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/" itemprop="url">旋转描述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-26T10:56:40+08:00">
-                2021-06-26
-              </time>
+              <a href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/" rel="next" title="扩张状态观测器">
+                <i class="fa fa-chevron-left"></i> 扩张状态观测器
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
+              <a href="/2021/06/27/robotic/quadrotor/" rel="prev" title="四旋翼飞行器建模与控制">
+                四旋翼飞行器建模与控制 <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
-<script type="math/tex; mode=display">
-^{A}R_B=[p_x,p_y,p_z]</script><p>$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述</p>
-<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
-<li>$^{A}R_B^{-1}={^A}R_B^T$</li>
-<li>$^{A}R_C={^A}R_B^{B}R_C$</li>
-<li>${^A}p={^A}R_B{^B}p$</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -770,10 +457,11 @@ y&=Cx
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -781,6 +469,10 @@ y&=Cx
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1026,6 +718,10 @@ y&=Cx
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

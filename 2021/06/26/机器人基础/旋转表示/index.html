@@ -79,11 +79,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="WuYangNing">
-<meta property="og:url" content="http://example.com/index.html">
+<meta name="description" content="旋转矩阵&amp;emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：  ^{A}R_B&#x3D;[p_x,p_y,p_z]$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述 运算 $^{A}R_B^{-1}&#x3D;{^A}R_B^T$ $^{A}R_C&#x3D;{^A}R_B^{B}R_C$ ${^A}p&#x3D;{^A}R_B{^B}p$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="旋转描述">
+<meta property="og:url" content="http://example.com/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/index.html">
 <meta property="og:site_name" content="WuYangNing">
+<meta property="og:description" content="旋转矩阵&amp;emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：  ^{A}R_B&#x3D;[p_x,p_y,p_z]$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述 运算 $^{A}R_B^{-1}&#x3D;{^A}R_B^T$ $^{A}R_C&#x3D;{^A}R_B^{B}R_C$ ${^A}p&#x3D;{^A}R_B{^B}p$">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-26T02:56:40.237Z">
+<meta property="article:modified_time" content="2021-06-27T09:30:17.070Z">
 <meta property="article:author" content="吴杨宁">
 <meta name="twitter:card" content="summary">
 
@@ -119,7 +123,7 @@
 
 
 
-  <title>WuYangNing</title>
+  <title>旋转描述 | WuYangNing</title>
   
 
 
@@ -138,8 +142,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -222,427 +225,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/robotic/quadrotor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/robotic/quadrotor/" itemprop="url">四旋翼飞行器建模与控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:22:43+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="完整动力学"><a href="#完整动力学" class="headerlink" title="完整动力学"></a>完整动力学</h1><p>&emsp;<br><strong>绝对坐标系下的位置动力学</strong></p>
-<script type="math/tex; mode=display">
-m\begin{bmatrix}
-  \ddot x\\
-  \ddot y\\
-  \ddot z  
-\end{bmatrix}=\begin{bmatrix}
-&fsin\beta -k_1\dot x+c_x+a_x\\
-&-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\
-&fcos\alpha cos\beta-mg-k_3\dot z+c_z+a_z 
-\end{bmatrix}</script><p><strong>机体坐标系下的姿态动力学</strong></p>
-<script type="math/tex; mode=display">
-\begin{bmatrix}
-  I_x\dot \omega_x\\
-  I_y\dot \omega_y\\
-  I_z\dot \omega_z  
-\end{bmatrix}=\begin{bmatrix}
-  \tau_x-\omega_y\omega_z(I_z-I_y)-k_4\omega_x+t_x+b_x\\
-  \tau_y-\omega_x\omega_z(I_x-I_z)-k_5\omega_y+t_y+b_y\\
-  \tau_z-\omega_x\omega_y(I_y-I_x)-k_4\omega_z+t_z+b_z
-\end{bmatrix}</script>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/robotic/quadrotor/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/control/MPC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/MPC/" itemprop="url">MPC控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:18:45+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Linear-MPC"><a href="#Linear-MPC" class="headerlink" title="Linear MPC"></a>Linear MPC</h1><script type="math/tex; mode=display">
-\begin{aligned}
-{min}_{U}\;J(U)&=(x_N-r_N)^TP(x_N-r_N)+\\
-&\sum^{N-1}_{k=0}(x_k-r_k)^TQ(x_k-r_k)+u_k^TRu_k\\
-s.t.& \\
-&x_{k+1}=Ax_k+Bu_k\\
-&x_{min}\le x_k\le x_{max}\\
-&u_{min}\le u_k\le u_{max}
-\end{aligned}</script><p>其中：</p>
-<ul>
-<li>$N$为预测时域</li>
-<li>$x_0=x(t)$为当前状态</li>
-<li>$x_k=x(t+k|t)$为当前状态下预测的k时刻后的状态</li>
-<li>$u_k=u(t+k|t)$为当前状态下预测的k时刻后的最佳控制量</li>
-<li>$r_k=r(t+k)$为参考状态</li>
-<li>$P,Q,R$为正定对角矩阵</li>
-<li>$U=[u_{0} ,u_1, …u_ {p-1}]^T$</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/MPC/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/icon.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WuYangNing">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/" itemprop="url">扩张状态观测器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:17:39+08:00">
-                2021-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="龙伯格观测器"><a href="#龙伯格观测器" class="headerlink" title="龙伯格观测器"></a>龙伯格观测器</h1><p>考虑一个线性模型：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\dot {x}&=Ax+Bu \\
-y&=Cx
-\end{aligned}</script><ul>
-<li>$x$为状态，</li>
-<li>$y$为输出，即测量值</li>
-</ul>
-<p>则一个龙伯格观测器为：</p>
-<script type="math/tex; mode=display">
-\dot{\hat{x}}=A\hat{x}+Bu+L(y-\hat{y})</script><ul>
-<li>$\hat{x}$为状态估计值</li>
-<li>$\hat y=C\hat x$，为估计的测量值</li>
-</ul>
-<p>上式中$A\hat{x}+Bu$为开环观测值，可以理解为预测值。$L(y-\hat{y})$为测量值的误差反馈。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -672,9 +257,7 @@ y&=Cx
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/" itemprop="url">旋转描述</a></h1>
+          <h1 class="post-title" itemprop="name headline">旋转描述</h1>
         
 
         <div class="post-meta">
@@ -722,8 +305,7 @@ y&=Cx
       
 
       
-        
-          <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
+        <h1 id="旋转矩阵"><a href="#旋转矩阵" class="headerlink" title="旋转矩阵"></a>旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
 <script type="math/tex; mode=display">
 ^{A}R_B=[p_x,p_y,p_z]</script><p>$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述</p>
 <h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
@@ -731,14 +313,109 @@ y&=Cx
 <li>$^{A}R_C={^A}R_B^{B}R_C$</li>
 <li>${^A}p={^A}R_B{^B}p$</li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2021/06/26/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<span id="more"></span>
+<h2 id="绕xyz的旋转"><a href="#绕xyz的旋转" class="headerlink" title="绕xyz的旋转"></a>绕xyz的旋转</h2><p>使用右手定则确定旋转的方向</p>
+<script type="math/tex; mode=display">
+Rot_x(\theta)=\begin{bmatrix}
+  1& 0 &0 \\
+  0& cos\theta &-sin\theta \\
+  0&  sin\theta&cos\theta
+\end{bmatrix}</script><script type="math/tex; mode=display">
+Rot_y(\theta)=\begin{bmatrix}
+  cos\theta& 0 &sin\theta \\
+  0& 1&0\\
+  -sin\theta&  0&cos\theta
+\end{bmatrix}</script><script type="math/tex; mode=display">
+Rot_z(\theta)=\begin{bmatrix}
+  cos\theta& -sin\theta&0 \\
+  sin\theta& cos\theta &0 \\
+  0&  0&1
+\end{bmatrix}</script><h2 id="齐次变换"><a href="#齐次变换" class="headerlink" title="齐次变换"></a>齐次变换</h2><p>将旋转和平移变换写成齐次矩阵：</p>
+<script type="math/tex; mode=display">
+T=\begin{bmatrix}
+  R& p \\
+  0&  1
+\end{bmatrix}</script><p>满足:</p>
+<script type="math/tex; mode=display">
+T^{-1}=\begin{bmatrix}
+  R^T& -R^Tp \\
+  0&  1
+\end{bmatrix}</script><h1 id="欧拉角"><a href="#欧拉角" class="headerlink" title="欧拉角"></a>欧拉角</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">　　坐标系A--&gt;|绕z旋转|坐标系1;</span><br><span class="line">　　坐标系1--&gt;|绕y旋转|坐标系2;</span><br><span class="line">　　坐标系2--&gt;|绕x旋转|坐标系B;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph RL;</span><br><span class="line">　　Bp--&gt;|Rot_x|2p;</span><br><span class="line">　　2p--&gt;|Rot_y|1p;</span><br><span class="line">　　1p--&gt;|Rot_z|Ap;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+Euler_{zyx}(\alpha,\beta,\gamma)=\begin{bmatrix}
+  c\alpha c\beta& c\alpha s\beta s\gamma-s\alpha c\gamma&c\alpha s\beta c\gamma+s\alpha s\gamma \\
+  s\alpha c\beta&s\alpha s\beta s\gamma+c\alpha c\gamma   &s\alpha s\beta c\gamma-c\alpha s\gamma \\
+  -s\beta&  c\beta s\gamma&c\beta c\gamma
+\end{bmatrix}</script><h3 id="已知旋转矩阵求欧拉角"><a href="#已知旋转矩阵求欧拉角" class="headerlink" title="已知旋转矩阵求欧拉角"></a>已知旋转矩阵求欧拉角</h3><script type="math/tex; mode=display">
+\begin{aligned}
+&\alpha=atan2(r_{21},r_{11})\\
+&\beta=atan2(-r_{31},\pm\sqrt{r_{11}^2+r_{21}^2}) \\
+&\gamma=atan2(r_{32},r_{33})
+\end{aligned}</script><h1 id="四元数"><a href="#四元数" class="headerlink" title="四元数"></a>四元数</h1><p>四元数定义为：</p>
+<script type="math/tex; mode=display">
+q=s+xi+yi+zk=q(s,v)</script><p>满足：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& i^2+j^2+k^2=ijk=-1\\
+&ij=-ji=k\\
+&jk=-kj=i\\
+&ki=-ik=j
+\end{aligned}</script><p>用于表示旋转的单位四元数：</p>
+<script type="math/tex; mode=display">
+q(cos\frac{\theta}{2},vsin\frac{\theta}{2})</script><p>其意义为绕当前坐标系v轴旋转$\theta$角度得到的新的坐标系</p>
+<h2 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h2><p>四元数$q_1=a+bi+cj+dk,q_2=e+fi+gj+hk$</p>
+<ul>
+<li>相加：<script type="math/tex; mode=display">
+q_1+q_2=(a+e)+(b+f)i+(c+g)j+(d+h)k</script></li>
+<li>相乘(不满足交换律)：<script type="math/tex; mode=display">
+\begin{aligned}
+q_1q_2=&(ae-bf-cg-dh)+\\
+&(be+af-dg+ch)i+\\
+&(ce+df+ag-bh)j+\\
+&(de-cf+bg+ah)k
+\end{aligned}</script>或表示为：<script type="math/tex; mode=display">
+q_1q_2=\begin{bmatrix}
+a&-b &-c &-d  \\ 
+b&  a& -d & c\\ 
+c&  d&  a&-b \\ 
+d&  -c& b & a
+\end{bmatrix}\begin{bmatrix}
+e\\
+f\\
+g\\
+h
+\end{bmatrix}</script></li>
+<li>乘法也可表示为：<script type="math/tex; mode=display">
+\begin{aligned}
+&q_1=[s_1,v_1],q_2=[s_2,v_2]\\
+&q_1q_2=[s_1s_2-v_1v_2,s_1v_2+s_2v_1+v_1\times v_2]
+\end{aligned}</script></li>
+<li><p>共轭和逆</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&q=[s,v],q^*=[s,-v]\\
+&q^{-1}=\frac{q^*}{|q|^2}
+\end{aligned}</script><h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2></li>
+<li><p>$q_{1,2}$表示坐标系{1}到{2}的旋转（{2}相对于{1}的姿态），则向量在{1}中的表示$p_1$和向量在{2}中的表示$p_2$的关系为：</p>
+<script type="math/tex; mode=display">
+p_1=q_{1,2}p_2q_{1,2}^*</script></li>
+<li>旋转的叠加与旋转矩阵相似，依次进行$q_1,q_2$旋转（绕相对轴）的叠加可表示为<script type="math/tex; mode=display">
+q=q_1q_2</script><h2 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h2></li>
+<li>xyz欧拉角$(\alpha,\beta,\gamma)$转四元数<script type="math/tex; mode=display">
+\begin{bmatrix}
+w \\ 
+x\\ 
+y\\ 
+x
+\end{bmatrix}=\begin{bmatrix}
+c\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
+s\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
+c\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}\\
+s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}
+\end{bmatrix}</script></li>
+</ul>
+<h1 id="旋量"><a href="#旋量" class="headerlink" title="旋量"></a>旋量</h1>
       
     </div>
     
@@ -755,12 +432,28 @@ y&=Cx
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/06/27/control/%E6%89%A9%E5%BC%A0%E7%8A%B6%E6%80%81%E8%A7%82%E6%B5%8B%E5%99%A8/" rel="prev" title="扩张状态观测器">
+                扩张状态观测器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -770,10 +463,11 @@ y&=Cx
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -781,6 +475,10 @@ y&=Cx
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1026,6 +724,10 @@ y&=Cx
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

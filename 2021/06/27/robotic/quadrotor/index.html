@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="一、旋转矩阵&amp;emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：  ^{A}R_B&#x3D;[p_x,p_y,p_z]$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述 运算 $^{A}R_B^{-1}&#x3D;{^A}R_B^T$ $^{A}R_C&#x3D;{^A}R_B^{B}R_C$ ${^A}p&#x3D;{^A}R_B{^B}p$">
+<meta name="description" content="完整动力学&amp;emsp;绝对坐标系下的位置动力学  m\begin{bmatrix}   \ddot x\\   \ddot y\\   \ddot z   \end{bmatrix}&#x3D;\begin{bmatrix} &amp;fsin\beta -k_1\dot x+c_x+a_x\\ &amp;-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\ &amp;fcos\alpha cos\be">
 <meta property="og:type" content="article">
-<meta property="og:title" content="旋转表示法">
-<meta property="og:url" content="http://example.com/2021/06/26/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/index.html">
+<meta property="og:title" content="四旋翼飞行器建模与控制">
+<meta property="og:url" content="http://example.com/2021/06/27/robotic/quadrotor/index.html">
 <meta property="og:site_name" content="WuYangNing">
-<meta property="og:description" content="一、旋转矩阵&amp;emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：  ^{A}R_B&#x3D;[p_x,p_y,p_z]$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述 运算 $^{A}R_B^{-1}&#x3D;{^A}R_B^T$ $^{A}R_C&#x3D;{^A}R_B^{B}R_C$ ${^A}p&#x3D;{^A}R_B{^B}p$">
+<meta property="og:description" content="完整动力学&amp;emsp;绝对坐标系下的位置动力学  m\begin{bmatrix}   \ddot x\\   \ddot y\\   \ddot z   \end{bmatrix}&#x3D;\begin{bmatrix} &amp;fsin\beta -k_1\dot x+c_x+a_x\\ &amp;-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\ &amp;fcos\alpha cos\be">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-06-26T02:56:40.237Z">
-<meta property="article:modified_time" content="2021-06-27T07:19:13.112Z">
+<meta property="article:published_time" content="2021-06-27T09:22:43.101Z">
+<meta property="article:modified_time" content="2021-06-27T09:58:57.915Z">
 <meta property="article:author" content="吴杨宁">
 <meta name="twitter:card" content="summary">
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>旋转表示法 | WuYangNing</title>
+  <title>四旋翼飞行器建模与控制 | WuYangNing</title>
   
 
 
@@ -240,7 +240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/26/%E6%97%8B%E8%BD%AC%E8%A1%A8%E7%A4%BA/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/27/robotic/quadrotor/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -257,7 +257,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">旋转表示法</h1>
+          <h1 class="post-title" itemprop="name headline">四旋翼飞行器建模与控制</h1>
         
 
         <div class="post-meta">
@@ -267,8 +267,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-26T10:56:40+08:00">
-                2021-06-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-06-27T17:22:43+08:00">
+                2021-06-27
               </time>
             
 
@@ -305,117 +305,152 @@
       
 
       
-        <h1 id="一、旋转矩阵"><a href="#一、旋转矩阵" class="headerlink" title="一、旋转矩阵"></a>一、旋转矩阵</h1><p>&emsp;坐标系{B}可由坐标系{A}旋转得到，因此{B}的姿态可用一个旋转矩阵表示：</p>
+        <h1 id="完整动力学"><a href="#完整动力学" class="headerlink" title="完整动力学"></a>完整动力学</h1><p>&emsp;<br><strong>绝对坐标系下的位置动力学</strong></p>
 <script type="math/tex; mode=display">
-^{A}R_B=[p_x,p_y,p_z]</script><p>$p_x,p_y,p_z$分别为坐标系{B}的坐标轴方向的单位向量在{A}中的描述</p>
-<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
-<li>$^{A}R_B^{-1}={^A}R_B^T$</li>
-<li>$^{A}R_C={^A}R_B^{B}R_C$</li>
-<li>${^A}p={^A}R_B{^B}p$</li>
-</ul>
-<span id="more"></span>
-<h2 id="绕xyz的旋转"><a href="#绕xyz的旋转" class="headerlink" title="绕xyz的旋转"></a>绕xyz的旋转</h2><p>使用右手定则确定旋转的方向</p>
-<script type="math/tex; mode=display">
-Rot_x(\theta)=\begin{bmatrix}
-  1& 0 &0 \\
-  0& cos\theta &-sin\theta \\
-  0&  sin\theta&cos\theta
-\end{bmatrix}</script><script type="math/tex; mode=display">
-Rot_y(\theta)=\begin{bmatrix}
-  cos\theta& 0 &sin\theta \\
-  0& 1&0\\
-  -sin\theta&  0&cos\theta
-\end{bmatrix}</script><script type="math/tex; mode=display">
-Rot_z(\theta)=\begin{bmatrix}
-  cos\theta& -sin\theta&0 \\
-  sin\theta& cos\theta &0 \\
-  0&  0&1
-\end{bmatrix}</script><h2 id="齐次变换"><a href="#齐次变换" class="headerlink" title="齐次变换"></a>齐次变换</h2><p>将旋转和平移变换写成齐次矩阵：</p>
-<script type="math/tex; mode=display">
-T=\begin{bmatrix}
-  R& p \\
-  0&  1
-\end{bmatrix}</script><p>满足:</p>
-<script type="math/tex; mode=display">
-T^{-1}=\begin{bmatrix}
-  R^T& -R^Tp \\
-  0&  1
-\end{bmatrix}</script><h1 id="二、欧拉角"><a href="#二、欧拉角" class="headerlink" title="二、欧拉角"></a>二、欧拉角</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">　　坐标系A--&gt;|绕z旋转|坐标系1;</span><br><span class="line">　　坐标系1--&gt;|绕y旋转|坐标系2;</span><br><span class="line">　　坐标系2--&gt;|绕x旋转|坐标系B;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph RL;</span><br><span class="line">　　Bp--&gt;|Rot_x|2p;</span><br><span class="line">　　2p--&gt;|Rot_y|1p;</span><br><span class="line">　　1p--&gt;|Rot_z|Ap;</span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-Euler_{zyx}(\alpha,\beta,\gamma)=\begin{bmatrix}
-  c\alpha c\beta& c\alpha s\beta s\gamma-s\alpha c\gamma&c\alpha s\beta c\gamma+s\alpha s\gamma \\
-  s\alpha c\beta&s\alpha s\beta s\gamma+c\alpha c\gamma   &s\alpha s\beta c\gamma-c\alpha s\gamma \\
-  -s\beta&  c\beta s\gamma&c\beta c\gamma
-\end{bmatrix}</script><h3 id="已知旋转矩阵求欧拉角"><a href="#已知旋转矩阵求欧拉角" class="headerlink" title="已知旋转矩阵求欧拉角"></a>已知旋转矩阵求欧拉角</h3><script type="math/tex; mode=display">
-\begin{aligned}
-&\alpha=atan2(r_{21},r_{11})\\
-&\beta=atan2(-r_{31},\pm\sqrt{r_{11}^2+r_{21}^2}) \\
-&\gamma=atan2(r_{32},r_{33})
-\end{aligned}</script><h1 id="三、四元数"><a href="#三、四元数" class="headerlink" title="三、四元数"></a>三、四元数</h1><p>四元数定义为：</p>
-<script type="math/tex; mode=display">
-q=s+xi+yi+zk=q(s,v)</script><p>满足：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& i^2+j^2+k^2=ijk=-1\\
-&ij=-ji=k\\
-&jk=-kj=i\\
-&ki=-ik=j
-\end{aligned}</script><p>用于表示旋转的单位四元数：</p>
-<script type="math/tex; mode=display">
-q(cos\frac{\theta}{2},vsin\frac{\theta}{2})</script><p>其意义为绕当前坐标系v轴旋转$\theta$角度得到的新的坐标系</p>
-<h2 id="运算-1"><a href="#运算-1" class="headerlink" title="运算"></a>运算</h2><p>四元数$q_1=a+bi+cj+dk,q_2=e+fi+gj+hk$</p>
-<ul>
-<li>相加：<script type="math/tex; mode=display">
-q_1+q_2=(a+e)+(b+f)i+(c+g)j+(d+h)k</script></li>
-<li>相乘(不满足交换律)：<script type="math/tex; mode=display">
-\begin{aligned}
-q_1q_2=&(ae-bf-cg-dh)+\\
-&(be+af-dg+ch)i+\\
-&(ce+df+ag-bh)j+\\
-&(de-cf+bg+ah)k
-\end{aligned}</script>或表示为：<script type="math/tex; mode=display">
-q_1q_2=\begin{bmatrix}
-a&-b &-c &-d  \\ 
-b&  a& -d & c\\ 
-c&  d&  a&-b \\ 
-d&  -c& b & a
-\end{bmatrix}\begin{bmatrix}
-e\\
-f\\
-g\\
-h
-\end{bmatrix}</script></li>
-<li>乘法也可表示为：<script type="math/tex; mode=display">
-\begin{aligned}
-&q_1=[s_1,v_1],q_2=[s_2,v_2]\\
-&q_1q_2=[s_1s_2-v_1v_2,s_1v_2+s_2v_1+v_1\times v_2]
-\end{aligned}</script></li>
-<li><p>共轭和逆</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-&q=[s,v],q^*=[s,-v]\\
-&q^{-1}=\frac{q^*}{|q|^2}
-\end{aligned}</script><h2 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h2></li>
-<li><p>$q_{1,2}$表示坐标系{1}到{2}的旋转（{2}相对于{1}的姿态），则向量在{1}中的表示$p_1$和向量在{2}中的表示$p_2$的关系为：</p>
-<script type="math/tex; mode=display">
-p_1=q_{1,2}p_2q_{1,2}^*</script></li>
-<li>旋转的叠加与旋转矩阵相似，依次进行$q_1,q_2$旋转（绕相对轴）的叠加可表示为<script type="math/tex; mode=display">
-q=q_1q_2</script><h2 id="转化"><a href="#转化" class="headerlink" title="转化"></a>转化</h2></li>
-<li>xyz欧拉角$(\alpha,\beta,\gamma)$转四元数<script type="math/tex; mode=display">
-\begin{bmatrix}
-w \\ 
-x\\ 
-y\\ 
-x
+m\begin{bmatrix}
+  \ddot x\\
+  \ddot y\\
+  \ddot z  
 \end{bmatrix}=\begin{bmatrix}
-c\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
-s\frac{\alpha}{2}c\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}s\frac{\beta}{2}s\frac{\gamma}{2}\\
-c\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}-s\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}\\
-s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta}{2}s\frac{\gamma}{2}
+&fsin\beta -k_1\dot x+c_x+a_x\\
+&-fsin\alpha cos\beta-k_2\dot y+c_y+a_y\\
+&fcos\alpha cos\beta-mg-k_3\dot z+c_z+a_z 
+\end{bmatrix}</script><p><strong>机体坐标系下的姿态动力学</strong></p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+  I_x\dot \omega_x\\
+  I_y\dot \omega_y\\
+  I_z\dot \omega_z  
+\end{bmatrix}=\begin{bmatrix}
+  \tau_x-\omega_y\omega_z(I_z-I_y)-k_4\omega_x+t_x+b_x\\
+  \tau_y-\omega_x\omega_z(I_x-I_z)-k_5\omega_y+t_y+b_y\\
+  \tau_z-\omega_x\omega_y(I_y-I_x)-k_4\omega_z+t_z+b_z
+\end{bmatrix}</script><span id="more"></span>
+<p><strong>各部分参数如下：</strong></p>
+<ul>
+<li>$f$为升力，$\tau_x,\tau_y,\tau_z$飞机受到的力矩,由各个电机升力耦合得到</li>
+<li>$\alpha,\beta,\gamma$为飞机的xyz欧拉角</li>
+<li>$\omega_x,\omega_y,\omega_z$为机体坐标系下的三轴角速度</li>
+<li>$k_1,k_2,k_3,k_4,k_5,k_6$为阻力系数</li>
+<li>m为飞机质量，$J$为惯性张量<script type="math/tex; mode=display">
+M_I=\begin{bmatrix}
+I_x&-I_{xy}&I_{xz}\\
+-I_{xy}&I_y&-I_{yz}\\
+-I_{xz}&-I_{yz}&I_z
 \end{bmatrix}</script></li>
+<li>$c_x,c_y,c_z$为三个方向的科氏力<script type="math/tex; mode=display">
+\begin{aligned}
+&c_x=-m(\dot z\omega_y-\dot y\omega_z)\\
+&c_y=-m(\dot x\omega_z-\dot z\omega_x)\\
+&c_z=-m(\dot y\omega_x-\dot x\omega_y)
+\end{aligned}</script></li>
+<li>$t_x,t_y,t_z$为额外的惯性力矩(影响较小)<script type="math/tex; mode=display">
+\begin{aligned}
+&t_x=I_x[-I_{xz}(\omega_x\omega_y+\dot \omega_z)+I_{yz}(\omega_z^2-\omega_y^2)+I_{xy}(\omega_x\omega_z-\dot \omega_y)]\\
+&t_y=I_y[-I_{xy}(\omega_y\omega_z+\dot \omega_x)+I_{xz}(\omega_x^2-\omega_z^2)+I_{yz}(\omega_x\omega_y-\dot \omega_z)]\\
+&t_z=I_z[-I_{yz}(\omega_x\omega_z+\dot \omega_y)+I_{xy}(\omega_y^2-\omega_x^2)+I_{xz}(\omega_y\omega_z-\dot \omega_x)]
+\end{aligned}</script></li>
+<li>$x_G,y_G,z_G$为重心在飞机坐标系的位置</li>
+<li>$a_x,a_y,a_z,b_x,b_y,b_z$为重心偏移产生的额外力和力矩<script type="math/tex; mode=display">
+\begin{aligned}
+&a_x=m[x_G(\omega_y^2+\omega_z^2)-y_G(\omega_x\omega_y-\dot \omega_z)-z_G(\omega_x\omega_z+\dot \omega_y)]\\
+&a_y=m[y_G(\omega_x^2+\omega_z^2)-z_G(\omega_y\omega_z-\dot \omega_x)-x_G(\omega_x\omega_y+\dot \omega_z)]\\
+&a_z=m[z_G(\omega_x^2+\omega_y^2)-x_G(\omega_x\omega_z-\dot \omega_y)-y_G(\omega_y\omega_z+\dot \omega_x)]\\
+&b_x=mI_x[(x_G(\dot z\omega_z+\dot y\omega_y)+y_G(\ddot z-\dot x\omega_y)-z_G(\ddot y+\dot x\omega_z)]\\
+&b_y=mI_y[(y_G(\dot x\omega_x+\dot z\omega_z)+z_G(\ddot x-\dot y\omega_z)-x_G(\ddot z+\dot y\omega_x)]\\
+&b_z=mI_z[(z_G(\dot x\omega_x+\dot y\omega_y)+x_G(\ddot y-\dot z\omega_x)-y_G(\ddot x+\dot z\omega_y)]
+\end{aligned}</script></li>
 </ul>
-<h1 id="旋量"><a href="#旋量" class="headerlink" title="旋量"></a>旋量</h1>
+<p><strong>可简写为：</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&m\ddot{\mathbf{x}}=fRe_3+k\dot {\mathbf{x}}-m\mathbf{g}+F_{e} \\
+&J\dot{\mathbf{\omega}}=-\mathbf{\omega}\times J\omega+\mathbf{\tau}+\tau_e
+\end{aligned}</script><ul>
+<li>$\mathbf{x}，\mathbf{\omega}$为飞机状态</li>
+<li>$R$为飞机的姿态矩阵</li>
+<li>$e_3=[0,0,1]^T,\mathbf{g}=[0,0,g]$</li>
+</ul>
+<p>&emsp;</p>
+<h1 id="姿态控制"><a href="#姿态控制" class="headerlink" title="姿态控制"></a>姿态控制</h1><h3 id="基于四元数的控制"><a href="#基于四元数的控制" class="headerlink" title="基于四元数的控制"></a>基于四元数的控制</h3><ol>
+<li>已知当前姿态和目标姿态的四元数$q_c,q_d$，可求得目标姿态相对于当前姿态的四元数：<script type="math/tex; mode=display">
+q=q_c^{-1}q_d</script></li>
+<li>由四元数提取姿态误差的旋转轴和旋转角<script type="math/tex; mode=display">
+\begin{aligned}
+&v_e=\frac{1}{sin\frac{\theta_e}{2}}[q[1],q[2],q[3]^T]\\
+&\theta_e=2tan2(\sqrt{q^2[1]+q^2[2]+q^2[3]},q[0])
+\end{aligned}</script></li>
+<li>假设飞行器绕$v_e$旋转$\theta_e$到达目标姿态，则$\theta_e$满足：$\omega_d=-\dot \theta_e v_e$。因此，设计如下姿态环控制器可使系统稳定<script type="math/tex; mode=display">
+\omega_d=K\theta_e v_r</script></li>
+<li>设计角速度环控制器跟踪角速度   <script type="math/tex; mode=display">
+[\tau_x,\tau_y,\tau_z]^T=ctrl(\omega_d,\omega)</script></li>
+</ol>
+<h3 id="倾转分离控制"><a href="#倾转分离控制" class="headerlink" title="倾转分离控制"></a>倾转分离控制</h3><p>偏航靠螺旋桨的反扭矩实现，对飞机的升力影响较大，因此需要采用倾转分离的控制方式，将偏航的控制分离出来，并且要限制偏航的控制。</p>
+<h4 id="倾斜"><a href="#倾斜" class="headerlink" title="倾斜"></a>倾斜</h4><ol>
+<li>已知当前和目标姿态$R_C$、$R_T$，得到目标姿态相对于当前姿态的旋转矩阵：<script type="math/tex; mode=display">
+^CR_T=R_C^T R_T</script></li>
+<li>目标姿态的z轴相对于当前姿态坐标系下的描述：<script type="math/tex; mode=display">
+z_c=^CR_T[0,0,1]^T</script></li>
+<li>z轴的倾角<script type="math/tex; mode=display">
+\begin{aligned}
+&cos\theta_z=z_c[2]\\
+&sin\theta_z=\sqrt{z_c[0]^2+z_c[1]^2}\\
+&\theta_z=atan2(sin\theta_z,cos\theta_z)
+\end{aligned}</script></li>
+<li>计算旋转轴并单位化<script type="math/tex; mode=display">
+\begin{aligned}
+&a=[0,0,1]\times z_c^T=[-z_c[1],z_c[0],0]^T\\
+&a_1=a/sin\theta_z
+\end{aligned}</script></li>
+<li>x,y方向的误差<script type="math/tex; mode=display">
+\begin{aligned}
+&e_{ux}=a_1[0]\theta_z\\
+&e_{uy}=a_1[1]\theta_z
+\end{aligned}</script>当$\theta_z$较小时，可取$\theta_z=sin\theta_z$<script type="math/tex; mode=display">
+\begin{aligned}
+&e_{ux}=-z_c[1]\\
+&e_{uy}=z_c[0]
+\end{aligned}</script></li>
+</ol>
+<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><p>旋转的分离可以使用罗德里格斯旋转公式得到对齐z轴的中间坐标系，再计算两坐标系x或y的夹角；也可以使用和倾角分离相同的方法，计算目标坐标系x或y轴的转角在当前坐标系z轴上的分量。以下采用第二种方法。</p>
+<ol>
+<li>目标的x轴在当前姿态坐标系下的描述<script type="math/tex; mode=display">
+x_c=^CR_T[1,0,0]^T</script></li>
+<li>x轴的倾角<script type="math/tex; mode=display">
+\begin{aligned}
+&cos\theta_x=x_c[0]\\
+&sin\theta_x=\sqrt{x_c[1]^2+x_c[2]^2}\\
+&\theta_x=atan2(sin\theta_x,cos\theta_x)
+\end{aligned}</script></li>
+<li>计算旋转轴并单位化<script type="math/tex; mode=display">
+\begin{aligned}
+&b=[1,0,0]\times x_c^T=[0,-x_c[2],x_c[1]]^T\\
+&b_1=b/sin\theta_x
+\end{aligned}</script></li>
+<li>使用目标姿态z轴的转角的余弦值作为z方向的误差系数，以限制航向的控制<script type="math/tex; mode=display">
+\begin{aligned}
+&e_{uz}=k_{uz}\frac{x_c[1]\theta_x}{sin\theta_x}\\
+&k_{uz}=cos^2\theta_z
+\end{aligned}</script></li>
+</ol>
+<p>&emsp;</p>
+<h1 id="位置控制"><a href="#位置控制" class="headerlink" title="位置控制"></a>位置控制</h1><ol>
+<li>使用xyz欧拉角$(\alpha,\beta,\gamma)$来表示动力学中包含控制量的项，设计控制器$ctrl_x,ctrl_y,ctrl_z$<script type="math/tex; mode=display">
+\begin{aligned}
+&f_x=ctrl_x=usin\beta_d \\
+&f_y=ctrl_y=-usin\alpha_d cos\beta_d\\
+&f_z=ctrl_z=u(cos\alpha_d cos\beta_d)-G\\
+\end{aligned}</script></li>
+<li>计算期望的姿态角<script type="math/tex; mode=display">
+\begin{aligned}
+&u=\sqrt{f_x^2+f_y^2+(f_z+G)^2}\\
+&\alpha_d=atan2(-f_y,f_z+G)\\
+&\beta_d=atan2(fx,\sqrt{u^2-f_x^2})
+\end{aligned}</script></li>
+<li>通过2可以求得期望姿态的四元数<script type="math/tex; mode=display">
+Rot_{xyz}(\alpha_d,\beta_d,\gamma_d)\rightarrow q_d</script></li>
+</ol>
+
       
     </div>
     
@@ -435,6 +470,22 @@ s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/06/27/control/MPC/" rel="next" title="MPC控制">
+                <i class="fa fa-chevron-left"></i> MPC控制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
@@ -483,17 +534,8 @@ s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -512,7 +554,7 @@ s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -523,7 +565,7 @@ s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -583,22 +625,6 @@ s\frac{\alpha}{2}s\frac{\beta}{2}c\frac{\gamma}{2}+c\frac{\alpha}{2}c\frac{\beta
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5"><span class="nav-text">一、旋转矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97"><span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%95xyz%E7%9A%84%E6%97%8B%E8%BD%AC"><span class="nav-text">绕xyz的旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BD%90%E6%AC%A1%E5%8F%98%E6%8D%A2"><span class="nav-text">齐次变换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-text">二、欧拉角</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E6%97%8B%E8%BD%AC%E7%9F%A9%E9%98%B5%E6%B1%82%E6%AC%A7%E6%8B%89%E8%A7%92"><span class="nav-text">已知旋转矩阵求欧拉角</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%9B%9B%E5%85%83%E6%95%B0"><span class="nav-text">三、四元数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97-1"><span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E6%8D%A2"><span class="nav-text">变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E5%8C%96"><span class="nav-text">转化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%8B%E9%87%8F"><span class="nav-text">旋量</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
